@@ -3,11 +3,15 @@ import Random from './Random.js';
 import Toggle from './Toggle.js';
 
 class App extends Component {
+    constructor() {
+        super();
+    }
+
     render() {
         return (
             <div>
                 <Random/>
-                <Toggle/>
+                <Toggle initialToggleState={true}/>
                 <div>Click icon to search</div>
             </div>
         );
