@@ -5,20 +5,11 @@ class Toggle extends Component {
         super(props);
         this.state = {
             input: '',
-            toggleState: this.props.initialToggleState
+            toggleState: true
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleClick = this.handleClick.bind(this);
         this.handleKeydown = this.handleKeydown.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-    }
-
-    handleKeydown(event) {
-        if(event.key === 'Enter') {
-            this.setState({
-                input: ''
-            });
-        }
     }
 
     handleChange(event) {
@@ -29,20 +20,27 @@ class Toggle extends Component {
 
     handleClick() {
         this.setState((state) => {
-            return {toggleState: !state.toggleState};
+            return {
+                input: '',
+                toggleState: !state.toggleState
+            };
         });
+        this.props.hideResults();
     }
 
-    handleSubmit() {
-        this.setState({
-            input: ''
-        });
+    handleKeydown(event) {
+        if(event.key === 'Enter') {
+            this.props.showResults(this.state.input);
+            this.setState({
+                input: ''
+            });
+        }
     }
 
     render() {
         return this.state.toggleState ? (
             <img
-                alt="Hello"
+                alt="Search Icon"
                 onClick={this.handleClick}
                 src="./search-24px.svg"
             />
