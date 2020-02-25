@@ -1,5 +1,106 @@
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+}
+
+:root {
+    --main-font: 'Muli', Arial, Helvetica, sans-serif;
+    --background-color: #092b40;
+    --main-text-color: white;
+    --toggle-size: 3rem;
+}
+
+body {
+    background-color: var(--background-color);
+}
+
+#root {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100vw;
+    height: 100vh;
+}
+
+.app-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 95%;
+    padding-top: 45vh;
+    transition: padding-top .75s;
+}
+
+.main-text {
+    color: var(--main-text-color);
+    font-size: 1.25rem;
+    text-align: center;
+    font-family: var(--main-font);
+}
+
+a {
+    text-decoration: none;
+}
+
+.main-text a:active,
+.main-text a:focus,
+.main-text a:visited {
+    color: var(--main-text-color);
+}
+
+.toggle {
+    display: flex;
+    align-items: stretch;
+    margin: 0.25rem auto;
+    height: var(--toggle-size);
+    user-select: none;
+}
+
+.toggle input {
+    font-size: calc(.40 * var(--toggle-size));
+    background-color: var(--background-color);
+    color: var(--main-text-color);
+}
+
+img.toggle {
+    transition: filter 0.3s;
+    filter:
+    invert(76%)
+    sepia(30%)
+    saturate(6660%)
+    hue-rotate(10deg)
+    brightness(90%)
+    contrast(107%);
+}
+
+img.toggle:hover {
+    cursor: pointer;
+    filter:
+    invert(76%)
+    sepia(30%)
+    saturate(6660%)
+    hue-rotate(10deg)
+    brightness(100%)
+    contrast(107%);
+}
+
+.result {
+    background-color: white;
+    margin: 1rem 0;
+    padding: 1rem;
+    font-family: var(--main-font);
+    position: relative;
+}
+
+.result:hover::before {
+    background-color: #f4b400;
+    content: "";
+    height: 100%;
+    width: 5px;
+    position: absolute;
+    top: 0;
+    left: 0;
 }

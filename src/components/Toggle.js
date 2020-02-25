@@ -43,9 +43,10 @@ class Toggle extends Component {
                 alt="Search Icon"
                 onClick={this.handleClick}
                 src="./search-24px.svg"
+                className="toggle"
             />
         ) : (
-            <div>
+            <div className="toggle">
                 <input
                     type="text"
                     onChange={this.handleChange}

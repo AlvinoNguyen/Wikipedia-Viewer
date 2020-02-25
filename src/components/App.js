@@ -39,6 +39,7 @@ class App extends Component {
             });
         })
         .catch(error => console.log(error));
+        document.querySelector('.app-container').setAttribute('style', 'padding-top: 3vh;');
     }
 
     hideResults() {
@@ -46,11 +47,12 @@ class App extends Component {
         this.setState({
             showResults: false
         });
+        document.querySelector('.app-container').setAttribute('style', 'padding-top: 45vh');
     }
 
     render() {
         return (
-            <div>
+            <div className="app-container">
                 <Random/>
                 <Toggle
                     showResults={this.showResults} 
@@ -59,7 +61,7 @@ class App extends Component {
                 {
                     this.state.showResults ?
                     <div>{this.results}</div> : 
-                    <div>Click icon to search</div>
+                    <div className="main-text">Click icon to search</div>
                 }
             </div>
         );

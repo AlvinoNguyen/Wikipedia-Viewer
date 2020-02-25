@@ -2,7 +2,7 @@ import React from 'react';
 
 const Result = (props) => {
     return (
-        <div>
+        <div class="result">
             <a
                 href={`https://en.wikipedia.org/?curid=${props.curid}`}
                 target="_blank"

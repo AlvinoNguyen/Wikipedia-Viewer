@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Random = () => (
-    <div>
+    <div className="main-text">
         <a
             href="https://en.wikipedia.org/wiki/Special:Random"
             target="_blank"
