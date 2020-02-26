@@ -9,19 +9,23 @@
 :root {
     --main-font: 'Muli', Arial, Helvetica, sans-serif;
     --background-color: #092b40;
-    --main-text-color: white;
+    --main-text-color: #efefef;
+    --secondary-color: #f4b400;
     --toggle-size: 3rem;
 }
 
 body {
     background-color: var(--background-color);
+    margin: auto;
+    width: 95vw;
 }
 
 #root {
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    width: 100vw;
+    margin: auto;
+    width: 95vw;
     height: 100vh;
 }
 
@@ -54,18 +58,42 @@ a {
 .toggle {
     display: flex;
     align-items: stretch;
-    margin: 0.25rem auto;
+    margin: .75rem auto;
     height: var(--toggle-size);
     user-select: none;
+    position: relative;
 }
 
 .toggle input {
-    font-size: calc(.40 * var(--toggle-size));
     background-color: var(--background-color);
+    border: solid 2px var(--secondary-color);
+    border-radius: calc(0.5 * var(--toggle-size));
     color: var(--main-text-color);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: calc(.40 * var(--toggle-size));
+    padding: 0 1rem;
+    outline: none;
+}
+
+.toggle button {
+    align-self: center;
+    background: none;
+    border: none;
+    color: var(--secondary-color);
+    font-size: calc(.40 * var(--toggle-size));
+    font-family: var(--main-font);
+    font-weight: bold;
+    outline: none;
+    position: absolute;
+    right: calc(0.5 * var(--toggle-size));
+}
+
+.toggle button:hover {
+    cursor: pointer;
 }
 
 img.toggle {
+    align-self: center;
     transition: filter 0.3s;
     filter:
     invert(76%)
@@ -88,19 +116,36 @@ img.toggle:hover {
 }
 
 .result {
-    background-color: white;
-    margin: 1rem 0;
+    background-color: var(--main-text-color);
+    margin: 1rem auto;
     padding: 1rem;
     font-family: var(--main-font);
     position: relative;
 }
 
-.result:hover::before {
-    background-color: #f4b400;
+.result::before {
     content: "";
     height: 100%;
     width: 5px;
     position: absolute;
     top: 0;
     left: 0;
+    transition: background-color 0.3s;
+}
+
+.result:hover::before {
+    background-color: var(--secondary-color);
+}
+
+.result a,
+.result a:active,
+.result a:focus,
+.result a:visited {
+    color: black;
+}
+
+@media (min-width: 600px) {
+    .app-container {
+        width: 75%;
+    }
 }

@@ -60,7 +60,7 @@ class App extends Component {
                 />
                 {
                     this.state.showResults ?
-                    <div>{this.results}</div> : 
+                    <div className="results">{this.results}</div> : 
                     <div className="main-text">Click icon to search</div>
                 }
             </div>
